@@ -1,0 +1,7 @@
+{
+  "rulesDirectory": [
+    "node_modules/ng2lint/dist/src"
+  ],
+  "rules": {
+  }
+}

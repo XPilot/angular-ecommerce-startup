@@ -1,0 +1,16 @@
+root = true
+
+# the generic editorconfig used to define the style of writing
+# our little code, in a nice uniform manner
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# markdown definitions
+[*.md]
+insert_final_newline = false
+trim_trailing_whitespace = false

@@ -1,8 +1,6 @@
 import { bootstrap } from 'angular2/platform/browser';
 import { provideHmrState, hotModuleReplacement } from 'angular2-hmr';
 
-import 'reflect-metadata';
-
 import App from './app/app';
 
 export function main(initialState= {}) {

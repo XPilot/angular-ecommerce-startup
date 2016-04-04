@@ -25,7 +25,8 @@ module.exports = {
 
   // define entry points
   entry: {
-    'main': './src/bootstrap.ts'
+    'polyfills': './src/polyfills.ts',
+    'main': './src/bootstrap.ts',
   },
 
   // path and extension resolvers
@@ -33,6 +34,8 @@ module.exports = {
     extensions: ['', '.ts', '.js'],
     root: helpers.root('src'),
   },
+
+  modulesDirectories: ['node_modules'],
 
   // the output location, spitted out by our dear webpack
   output: {
@@ -93,9 +96,22 @@ module.exports = {
   // the plugins for this awesome system
   plugins: [
     new ForkCheckerPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({name: ['main'], minChunks: Infinity}),
-    new CopyWebpackPlugin([{from: 'src/assets', to: 'assets'}]),
-    new HtmlWebpackPlugin({template: 'src/index.html', chunksSortMode: 'none'}),
+    new webpack.optimize.OccurenceOrderPlugin(true),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: helpers.reverse(['polyfills', 'main']),
+      minChunks: Infinity
+    }),
+
+    new CopyWebpackPlugin([{
+      from: 'src/assets',
+      to: 'assets'
+    }]),
+
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      chunksSortMode: helpers.packageSort(['polyfills', 'main'])
+    }),
+
     new webpack.DefinePlugin({'ENV': JSON.stringify(metadata), 'HMR': HMR})
   ],
 

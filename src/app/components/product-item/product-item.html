@@ -1,0 +1,38 @@
+<div class="ProductItem" [ngClass]="{selected: productIsSelected}">
+  <div class="ProductItem-TopSeller" [ngClass]="{active: productIsTopSeller}"></div>
+  <h3 class="ProductItem-Heading">{{productHeading}}</h3>
+
+  <ul class="ProductItem-ProductList">
+    <li class="ProductItem-ProductListItem" *ngFor="#productItem of productList">
+      <img src="{{productItem.image}}" alt="{{productItem}}" />
+      <p class="ProductListItem-Title">{{productItem.title}}</p>
+    </li>
+  </ul>
+
+  <ul class="ProductItem-FeaturesList">
+    <li class="ProductItem-FeaturesListItem" *ngFor="#productFeature of productMainFeatures">
+      <!-- svg here -->
+      <p [innerHTML]=productMainFeatures></p>
+    </li>
+  </ul>
+
+  <ul class="ProductItem-OptionsList">
+    <li class="ProductItem-OptionsListItem" *ngFor="#productFeature of productSecondaryFeatures">
+      <!-- svg here -->
+      {{productFeature}}
+    </li>
+  </ul>
+
+  <div class="ProductItem-Price">
+    <a class="ProductItem-PriceDetails" href="#">Mehr Details</a>
+    <p class="ProductImte-PriceValue">
+      nur
+      <strong [innerHTML]=getPriceValue(productPrice.value)>€</strong>
+      <span [innerHTML]="productPrice.description"></span>
+    </p>
+  </div>
+
+  <button class="ProductItem-AddButton">
+    Add to cart
+  </button>
+</div>

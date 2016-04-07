@@ -1,0 +1,70 @@
+@import 'src/app/assets/scss/settings/colors.scss';
+@import 'src/app/assets/scss/settings/variables.scss';
+@import 'src/app/assets/scss/settings/responsive.scss';
+
+.ProductSelector {
+  position: relative;
+
+  margin: 0 0 15px;
+
+  text-align: center;
+
+  @include tablet-beyond {
+    display: none;
+  }
+}
+
+.ProductSelector-Item {
+  position: relative;
+
+  display: inline-block;
+  margin: 0 0 0 2.5px;
+
+  width: calc(50% - 5px);
+  height: 100px;
+
+  background: lighten($color-mariner, 25);
+
+  vertical-align: top;
+
+  &.selected {
+    background: $color-mariner;
+  }
+
+  &:after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+    border-color: transparent transparent $color-white transparent;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+  }
+}
+
+.ProductSelector-ItemTitle {
+  margin: 10px 0 0 0;
+  padding: 0;
+
+  color: $color-white;
+  font-size: $fs-normal;
+  font-weight: $fw-bold;
+  line-height: $fs-normal;
+  text-align: center;
+}
+
+.ProductSelector-ItemValue {
+  margin: 20px 0 0 0;
+  padding: 0;
+
+  color: $color-white;
+  font-size: $fs-normal + 10px;
+  font-weight: $fw-regular;
+  line-height: $fs-normal + 10px;
+  text-align: center;
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "productIsTopSeller": true,
+    "productHeading": "Komplettlösung",
+    "productList": [
+      {
+        "image": "assets/images/icon_app.png",
+        "title": "Smartfrog App"
+      },
+      {
+        "image": "assets/images/icon_camera.png",
+        "title": "Smartfrog Kamera"
+      },
+      {
+        "image": "assets/images/icon_cloud.png",
+        "title": "24 Std. Videospeicher"
+      }
+    ],
+    "productMainFeatures": [
+      "Live-Video rund um die Uhr",
+      "Video-Speicherung <span>der jeweils letzten 24 Stunde</span>"
+    ],
+    "productSecondaryFeatures": [
+      "Monatlich kündbar",
+      "Keine Einrichtungskosten",
+      "Kostenloser Versand"
+    ],
+    "price": {
+      "value": 4.95,
+      "description": "im Monat<sup>1</sup>"
+    }
+  },
+
+  {
+    "id": 2,
+    "productIsTopSeller": false,
+    "productHeading": "Kamera-Paket",
+    "productList": [
+      {
+        "image": "assets/images/icon_app.png",
+        "title": "Smartfrog App"
+      },
+      {
+        "image": "assets/images/icon_camera.png",
+        "title": "Smartfrog Kamera"
+      },
+      {
+        "image": "assets/images/icon_cloud.png",
+        "title": "24 Std. Videospeicher"
+      }
+    ],
+    "productMainFeatures": [
+      "Live-Video rund um die Uhr",
+      "Video-Speicherung <span>der jeweils letzten 24 Stunde</span>"
+    ],
+    "productSecondaryFeatures": [
+      "Kein Abo",
+      "Keine Einrichtungskosten",
+      "Kostenloser Versand"
+    ],
+    "price": {
+      "value": 99,
+      "description": "einmalig"
+    }
+  }
+]

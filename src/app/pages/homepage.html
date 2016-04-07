@@ -1,0 +1,29 @@
+<div class="Homepage">
+  <div class="ProductSelector">
+  <template ngFor #product [ngForOf]="products">
+    <product-selector
+      class="ProductSelector-Item"
+      [ngClass]="{selected: product.id === activeProduct}"
+      [product-selector]
+      (click)="setActiveProduct(product.id)"
+      productId="{{product.id}}"
+      productHeading="{{product.productHeading}}"
+      [productValue]="product.price.value"
+    >
+    </product-selector>
+  </template>
+  </div>
+  <template ngFor #product [ngForOf]="products">
+    <product-item
+      productId="{{product.id}}"
+      productIsTopSeller="{{product.productIsTopSeller}}"
+      productHeading="{{product.productHeading}}"
+      [productIsSelected]="product.id === activeProduct"
+      [productList]="product.productList"
+      [productMainFeatures]="product.productMainFeatures"
+      [productSecondaryFeatures]="product.productSecondaryFeatures"
+      [productPrice]="product.price"
+    >
+    </product-item>
+  </template>
+</div>

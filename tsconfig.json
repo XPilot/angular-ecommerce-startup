@@ -13,7 +13,9 @@
   ],
   "filesGlob": [
     "./src/**/*.ts",
-    "typings/browser.d.ts"
+    "src/custom-typings.d.ts",
+    "typings/browser.d.ts",
+    "!./node_modules/**/*.ts"
   ],
   "awesomeTypecriptLoaderOptions": {
     "resolveGlobs": true,
@@ -23,11 +25,5 @@
   "buildOnSave": false,
   "atom": {
     "rewriteTsconfig": false
-  },
-  "files": [
-    "src/app/app.ts",
-    "src/bootstrap.ts",
-    "src/custom-typings.d.ts",
-    "typings/browser.d.ts"
-  ]
+  }
 }

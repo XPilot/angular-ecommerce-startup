@@ -127,7 +127,15 @@ module.exports = {
       chunksSortMode: helpers.packageSort(['polyfills', 'main'])
     }),
 
-    new webpack.DefinePlugin({'ENV': JSON.stringify(metadata), 'HMR': HMR})
+    new webpack.DefinePlugin({
+      'ENV': JSON.stringify(ENV),
+      'HMR': HMR,
+      'process.env': {
+        'ENV': JSON.stringify(ENV),
+        'NODE_ENV': JSON.stringify(ENV),
+        'HMR': HMR,
+      }
+    })
   ],
 
   // config for the post-css plugin

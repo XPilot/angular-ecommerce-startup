@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 require('zone.js/dist/zone');
 
 if ('production' === ENV) {

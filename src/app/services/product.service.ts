@@ -11,6 +11,18 @@ export default class ProductService {
     return productData; //empty array for the time being
   }
 
+  getProductById(id):Object {
+    const item = productData
+      .filter(item => item.id === id)
+      .slice(0);
+
+    if (!item.length) {
+      return null;
+    }
+
+    return item[0];
+  }
+
   get activeProduct() {
     return this.selectedProduct || 1;
   }

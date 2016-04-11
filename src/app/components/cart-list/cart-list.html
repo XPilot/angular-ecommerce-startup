@@ -1,0 +1,15 @@
+<ul class="CartList-Header">
+  <li class="CartList-HeaderItem CartList-HeaderItem--Article"><p>Artikel</p></li>
+  <li class="CartList-HeaderItem CartList-HeaderItem--Details"><p>Details</p></li>
+  <li class="CartList-HeaderItem CartList-HeaderItem--Quantity"><p>Anzahl</p></li>
+  <li class="CartList-HeaderItem CartList-HeaderItem--Price"><p>Preis</p></li>
+</ul>
+
+<ul class="CartList-Items">
+  <template ngFor #cartProduct [ngForOf]="cartProducts">
+    <li class="CartList-Item CartList-Item--Article"><p>{{cartProduct.item.productHeading}}</p></li>
+    <li class="CartList-Item CartList-Item--Details"><p>{{cartProduct.item.description}}</p></li>
+    <li class="CartList-Item CartList-Item--Quantity"><p>{{cartProduct.quantity}}</p></li>
+    <li class="CartList-Item CartList-Item--Price"><p>{{cartProduct.item.price.value}}</p></li>
+  </template>
+</ul>

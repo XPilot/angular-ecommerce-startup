@@ -1,4 +1,4 @@
-import { Component, Input } from 'angular2/core';
+import { Component, Input, Output, EventEmitter } from 'angular2/core';
 
 // scss styles
 import './product-item.scss';
@@ -20,8 +20,7 @@ export default class ProductItem {
   @Input() productSecondaryFeatures:Array<string>;
   @Input() productPrice:Object;
 
-  constructor() {
-  }
+  @Output() onProductAdd = new EventEmitter();
 
   getPriceValue(value) {
     const valueSplit = value.toString().split('.');
@@ -31,5 +30,9 @@ export default class ProductItem {
     `${valueSplit[0]}&euro;`;
 
     return stringValue;
+  }
+
+  addProduct():void {
+    this.onProductAdd.emit(null);
   }
 }

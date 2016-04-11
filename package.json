@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "clean": "npm cache clean && rimraf node_modules typings build",
-    "start": "node --max-old-space-size=4096 ./node_modules/webpack-dev-server/bin/webpack-dev-server --config ./webpack/webpack.dev.js --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base src/",
+    "start": "npm run icons && npm run start:dev",
+    "start:dev": "node --max-old-space-size=4096 ./node_modules/webpack-dev-server/bin/webpack-dev-server --config ./webpack/webpack.dev.js --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base src/",
     "typings-install": "typings install",
+    "icons": "svg-sprite --symbol --symbol-sprite='icons.html' --symbol-dest='svg' --dest='./src/assets/icons/' ./src/assets/svg/*.svg",
     "postinstall": "npm run typings-install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -56,6 +58,7 @@
     "sass-loader": "^3.2.0",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.1",
+    "svg-sprite": "^1.2.19",
     "ts-helper": "0.0.1",
     "ts-node": "^0.7.1",
     "tslint": "^3.6.0",

@@ -13,17 +13,27 @@
     </product-selector>
   </template>
   </div>
+
+  <div class="ProductItemList">
   <template ngFor #product [ngForOf]="products">
     <product-item
       productId="{{product.id}}"
-      productIsTopSeller="{{product.productIsTopSeller}}"
+      [productIsTopSeller]="product.productIsTopSeller"
       productHeading="{{product.productHeading}}"
       [productIsSelected]="product.id === activeProduct"
       [productList]="product.productList"
       [productMainFeatures]="product.productMainFeatures"
       [productSecondaryFeatures]="product.productSecondaryFeatures"
       [productPrice]="product.price"
+      (onProductAdd)="addProduct(product.id)"
     >
     </product-item>
   </template>
+  </div>
+
+  <cart-list
+    class="CartList"
+    [cartProducts]="cartProducts"
+  >
+  </cart-list>
 </div>

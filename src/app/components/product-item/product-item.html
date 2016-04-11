@@ -12,7 +12,7 @@
   <ul class="ProductItem-FeaturesList">
     <li class="ProductItem-FeaturesListItem" *ngFor="#productFeature of productMainFeatures">
       <!-- svg here -->
-      <p [innerHTML]=productMainFeatures></p>
+      <p [innerHTML]=productFeature></p>
     </li>
   </ul>
 
@@ -32,7 +32,7 @@
     </p>
   </div>
 
-  <button class="ProductItem-AddButton">
+  <button class="ProductItem-AddButton" (click)="addProduct()">
     Add to cart
   </button>
 </div>

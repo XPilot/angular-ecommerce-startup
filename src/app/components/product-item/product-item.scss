@@ -1,6 +1,12 @@
-@import 'src/app/assets/scss/settings/colors.scss';
-@import 'src/app/assets/scss/settings/variables.scss';
-@import 'src/app/assets/scss/settings/responsive.scss';
+@import '~assets/scss/settings/colors.scss';
+@import '~assets/scss/settings/variables.scss';
+@import '~assets/scss/settings/responsive.scss';
+
+.ProductItemList {
+  width: 100%;
+
+  text-align: center;
+}
 
 .ProductItem {
   position: relative;
@@ -45,14 +51,24 @@
 
 .ProductItem-TopSeller {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 2;
+  z-index: 3;
 
   display: none;
 
+  pointer-events: none;
+
   &.active {
     display: block;
+  }
+
+  @include tablet-beyond {
+    top: -4px;
+    left: -4px;
+
+    width: 135px;
+    height: 132px;
+
+    background: url('/assets/images/top_seller.png');
   }
 }
 
@@ -72,6 +88,7 @@
 
   width: 80px;
   margin: 0 18px;
+  padding-top: 110px;
 
   font-size: 0;
 
@@ -85,12 +102,34 @@
     content: "+";
 
     position: absolute;
-    right: -36px;
+    right: -24px;
     top: 50%;
     transform: translateY(-50%);
 
     color: $color-tango;
     font-size: 40px;
+  }
+
+  &:first-child {
+    > img {
+      top: inherit;
+      bottom: 70px;
+    }
+  }
+
+  &:last-child {
+    > img {
+      top: inherit;
+      bottom: 70px;
+    }
+  }
+
+  > img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
   }
 }
 
@@ -184,7 +223,7 @@
 }
 
 .ProductImte-PriceValue {
-  height: 50px;
+  height: 70px;
   margin: 0;
   padding: 0 0 0 5px;
 
@@ -233,4 +272,11 @@
   font-size: $fs-normal + 5px;
   font-weight: $fw-regular;
   line-height: $fs-normal + 5px;
+
+  cursor: pointer;
+  transition: ease-out 350ms background;
+
+  &:hover {
+    background: lighten($color-mariner, 10);
+  }
 }

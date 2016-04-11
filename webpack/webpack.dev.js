@@ -37,7 +37,7 @@ module.exports = {
 
   modulesDirectories: [
     'node_modules',
-    './src/app/assets/scss',
+    './src/assets',
     './src/app/services'
   ],
 

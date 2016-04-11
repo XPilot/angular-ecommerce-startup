@@ -8,7 +8,7 @@ import {Homepage} from './pages/';
 import ProductItem from './components/product-item/product-item';
 
 // scss styles
-import './assets/scss/main.scss';
+import 'assets/scss/main.scss';
 
 @Component({
   selector: 'app',

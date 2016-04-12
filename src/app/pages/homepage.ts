@@ -3,6 +3,7 @@ import { Component } from 'angular2/core'
 // components
 import CartCalculator from 'app/components/cart-calculator/cart-calculator';
 import CartList from 'app/components/cart-list/cart-list';
+import InputButton from 'app/components/input-button/input-button';
 import ProductSelector from 'app/components/product-selector/product-selector';
 import ProductItem from 'app/components/product-item/product-item';
 
@@ -21,6 +22,7 @@ import './homepage.scss';
   directives: [
     CartCalculator,
     CartList,
+    InputButton,
     ProductItem,
     ProductSelector,
     ProductSelectorDirective
@@ -46,6 +48,12 @@ export class Homepage {
     this.activeProduct = id;
   }
 
+  // discount handling
+  onDiscountCode(discountCode: string) {
+    console.log('got discount code', discountCode);
+  }
+
+  // product handling
   addProduct(id) {
     this.cartProducts = this.cartService.addProduct(
       this.productService.getProductById(id)
@@ -53,7 +61,10 @@ export class Homepage {
   }
 
   updateProductQuantity(product) {
-    this.cartService.updateProduct(product.id, product.quantity);
+    this.cartProducts = this.cartService.updateProduct(
+      product.id,
+      product.quantity
+    );
   }
 
   deleteProduct(product) {

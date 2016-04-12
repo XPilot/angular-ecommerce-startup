@@ -5,6 +5,14 @@
 
   width: 100%;
   max-width: 1170px;
+
+  .InputButton {
+    float: left;
+  }
+
+  .CartCalculator {
+    float: right;
+  }
 }
 
 .CartPaymentZone {
@@ -15,8 +23,4 @@
   margin-top: 35px;
 
   overflow: hidden;
-}
-
-.CartCalculator {
-  float: right;
 }

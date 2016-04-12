@@ -40,7 +40,13 @@
   </cart-list>
 
   <div class="CartPaymentZone">
-    <!-- future component right here -->
+    <input-button
+      placeholder="Coupon-Code"
+      button="Einlösen"
+      (onSubmit)="onDiscountCode($event)"
+    >
+    </input-button>
+
     <cart-calculator
       class="CartCalculator"
       [cartProducts]="cartProducts"

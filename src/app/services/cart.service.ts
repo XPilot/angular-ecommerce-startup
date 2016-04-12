@@ -7,44 +7,36 @@ export default class CartService {
   addProduct(product: any): Array<any> {
     if (product) {
       let newItemsArray;
-      let itemExists = this.products
+      let existingItem = this.products
         .find(item => item.id === product.id);
 
-      if (!itemExists) {
+      if (!existingItem) {
         newItemsArray = this.products.slice(0);
         newItemsArray.push({
           id: product.id,
           item: product,
           quantity: 1,
         });
+
+        this.products = newItemsArray;
       } else {
-        newItemsArray = this.products
-          .slice(0)
-          .map(item => {
-            if(item.id === product.id) {
-              item.quantity = item.quantity + 1;
-            }
-            return item;
-          });
+        this.updateProduct(existingItem.id, existingItem.quantity + 1);
       }
-
-      this.products = newItemsArray;
-
-      return newItemsArray;
     }
+
     return this.products;
   }
 
-  updateProduct(id, quantity): Object {
+  updateProduct(id, quantity): Array<Object> {
     if (!id || !quantity) {
-      return null;
+      return this.products;
     }
 
     const updatedProducts = this.products
       .slice(0)
       .map(item => {
         if (item.id === id) {
-          item.quantity = quantity;
+          item.quantity = quantity <= item.item.stock ? quantity : item.item.stock;
         }
 
         return item;
@@ -52,7 +44,7 @@ export default class CartService {
 
     this.products = updatedProducts;
 
-    return updatedProducts.find(item => item.id === id);
+    return this.products;
   }
 
   deleteProduct(id: number): Array<Object> {

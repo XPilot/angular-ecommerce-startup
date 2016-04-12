@@ -8,7 +8,7 @@
     "start": "npm run icons && npm run start:dev",
     "start:dev": "node --max-old-space-size=4096 ./node_modules/webpack-dev-server/bin/webpack-dev-server --config ./webpack/webpack.dev.js --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base src/",
     "typings-install": "typings install",
-    "icons": "svg-sprite --symbol --symbol-sprite='icons.html' --symbol-dest='svg' --dest='./src/assets/icons/' ./src/assets/svg/*.svg",
+    "icons": "svg-sprite --symbol --symbol-sprite=icons.html --symbol-dest=icons --dest=./src/assets/ ./src/assets/svg/*.svg",
     "postinstall": "npm run typings-install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

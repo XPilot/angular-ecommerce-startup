@@ -9,6 +9,22 @@
       [max]="max"
       [value]="quantity"
     />
+    <div class="InputQuantity-DropDownMarker">
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </div>
+
+    <ul class="InputQuantity-DropDownMenu">
+      <li
+        class="InputQuantity-DropDownMenuItem"
+        *ngFor="#value of minMaxValues"
+        [ngClass]="{selected: value === quantity}"
+        (click)="update(value)"
+      >
+        {{value}}
+      </li>
+    </ul>
+
   </div>
   <button class="InputQuantity-Button" (click)="add()">+</button>
 </div>
+here {{hasAccess}}

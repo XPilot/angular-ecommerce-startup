@@ -5,7 +5,7 @@
 .InputQuantity {
   position: relative;
 
-  display: block;
+  display: inline-block;
 
   input[type="number"] {
     -moz-appearance: textfield;
@@ -39,6 +39,10 @@
   &:focus {
     background: lighten($color-mariner, 15);
   }
+
+  @include tablet-beyond {
+    display: none;
+  }
 }
 
 .InputQuantity-DropDown {
@@ -46,15 +50,44 @@
 
   display: inline-block;
 
+  width: 30px;
   margin: 0 3px;
 
   vertical-align: top;
+
+  &--open {
+    .InputQuantity-DropDownMenu {
+      display: none;
+    }
+  }
+
+  @include tablet-beyond {
+    width: 50px;
+
+    &--open {
+      .InputQuantity-DropDownMenu {
+        display: block;
+      }
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+
+      cursor: pointer;
+    }
+  }
 }
 
 .InputQuantity-Input {
   display: inline-block;
 
-  width: 30px;
+  width: 100%;
   height: 30px;
 
   background: $color-wild-sand;
@@ -70,4 +103,72 @@
 
   outline: none;
   vertical-align: top;
+
+  @include tablet-beyond {
+    padding-right: 20px;
+  }
+}
+
+.InputQuantity-DropDownMarker {
+  display: none;
+
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  color: $color-silver-chalice;
+  font-size: 10px;
+
+  pointer-events: none;
+
+  @include tablet-beyond {
+    display: block;
+  }
+}
+
+.InputQuantity-DropDownMenu {
+  position: absolute;
+  bottom: -2px;
+  right: 0;
+  transform: translateY(100%);
+  z-index: 4;
+
+  display: none;
+  width: calc(100% + 10px);
+  max-height: 80px;
+
+  margin: 0;
+  padding: 0;
+
+  background: $color-wild-sand;
+  border: 1px solid $color-alto;
+  border-radius: 4px;
+  box-sizing: border-box;
+  list-style: none;
+  list-style-type: none;
+  list-style-image: none;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.InputQuantity-DropDownMenuItem {
+  padding: 5px 0 5px 15px;
+
+  color: $color-tundora;
+  font-size: $fs-normal;
+  font-weight: $fw-regular;
+  line-height: $fs-normal;
+
+  cursor: pointer;
+  transition: ease-out 350ms background;
+
+  &.selected {
+    transition: none;
+    background: darken($color-wild-sand, 10);
+  }
+
+  &:hover {
+    background: darken($color-wild-sand, 10);
+  }
 }

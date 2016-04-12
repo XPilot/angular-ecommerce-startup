@@ -5,11 +5,34 @@
   <li class="CartList-HeaderItem CartList-HeaderItem--Price"><p>Preis</p></li>
 </ul>
 
-<ul class="CartList-Items">
+<div class="CartList-Items">
   <template ngFor #cartProduct [ngForOf]="cartProducts">
-    <li class="CartList-Item CartList-Item--Article"><p>{{cartProduct.item.productHeading}}</p></li>
-    <li class="CartList-Item CartList-Item--Details"><p>{{cartProduct.item.description}}</p></li>
-    <li class="CartList-Item CartList-Item--Quantity"><p>{{cartProduct.quantity}}</p></li>
-    <li class="CartList-Item CartList-Item--Price"><p>{{cartProduct.item.price.value}}</p></li>
+  <ul class="CartList-ItemList">
+    <li class="CartList-Item CartList-Item--Article">
+      <img class="CartList-ItemImage" [src]=cartProduct.item.productImage alt="{{cartProduct.item.productHeading}}"/>
+      <p class="CartList-ItemName">{{cartProduct.item.productHeading}}</p>
+    </li>
+    <li class="CartList-Item CartList-Item--Details">
+      <span class="CartList-ItemDetails" [innerHTML]="cartProduct.item.productDetails"></span>
+    </li>
+    <li class="CartList-Item CartList-Item--Quantity">
+      <input-quantity
+        min="0"
+        max="20"
+        [quantity]="cartProduct.quantity"
+        (change)="onQuantityChange(cartProduct.item.id, $event)">
+      </input-quantity>
+    </li>
+    <li class="CartList-Item CartList-Item--Price">
+      <p class="CartList-ItemPrice">
+        {{cartProduct.item.price.value}} &euro;/mtl.
+      </p>
+      <button
+        class="CartList-ItemDeleteButton"
+        (click)="onDelete(cartProduct.item.id)">
+        x
+      </button>
+    </li>
+  </ul>
   </template>
-</ul>
+</div>

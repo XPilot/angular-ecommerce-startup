@@ -6,17 +6,19 @@ export default class CartService {
 
   addProduct(product: any): Array<any> {
     if (product) {
+      let newItemsArray;
       let itemExists = this.products
         .find(item => item.id === product.id);
 
       if (!itemExists) {
-        this.products.push({
+        newItemsArray = this.products.slice(0);
+        newItemsArray.push({
           id: product.id,
           item: product,
           quantity: 1,
         });
       } else {
-        this.products = this.products
+        newItemsArray = this.products
           .slice(0)
           .map(item => {
             if(item.id === product.id) {
@@ -25,12 +27,46 @@ export default class CartService {
             return item;
           });
       }
-      return this.products;
+
+      this.products = newItemsArray;
+
+      return newItemsArray;
     }
-    return [];
+    return this.products;
   }
 
-  deleteProduct() {
+  updateProduct(id, quantity): Object {
+    if (!id || !quantity) {
+      return null;
+    }
+
+    const updatedProducts = this.products
+      .slice(0)
+      .map(item => {
+        if (item.id === id) {
+          item.quantity = quantity;
+        }
+
+        return item;
+      });
+
+    this.products = updatedProducts;
+
+    return updatedProducts.find(item => item.id === id);
+  }
+
+  deleteProduct(id: number): Array<Object> {
+    if (!id) {
+      return this.products;
+    }
+
+    const remainingProducts = this.products
+      .slice(0)
+      .filter(item => item.id !== id);
+
+    this.products = remainingProducts;
+
+    return this.products;
   }
 
   get cartProducts():Array<any> {

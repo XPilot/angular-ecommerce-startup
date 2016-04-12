@@ -34,6 +34,17 @@
   <cart-list
     class="CartList"
     [cartProducts]="cartProducts"
+    (onProductUpdate)="updateProductQuantity($event)"
+    (onProductDelete)="deleteProduct($event)"
   >
   </cart-list>
+
+  <div class="CartPaymentZone">
+    <!-- future component right here -->
+    <cart-calculator
+      class="CartCalculator"
+      [cartProducts]="cartProducts"
+    >
+    </cart-calculator>
+  </div>
 </div>

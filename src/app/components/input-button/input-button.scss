@@ -1,0 +1,62 @@
+@import '~assets/scss/settings/colors.scss';
+@import '~assets/scss/settings/variables.scss';
+@import '~assets/scss/settings/responsive.scss';
+
+.InputButton {
+  position: relative;
+
+  width: 100%;
+
+  @include tablet-beyond {
+    max-width: 300px;
+  }
+}
+
+.InputButton-Input {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  padding: 15px 105px 15px 15px;
+
+  background: $color-wild-sand;
+  border: 1px solid $color-alto;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+
+  color: $color-tundora;
+  font-size: $fs-normal;
+  font-weight: $fw-regular;
+  line-height: $fs-normal;
+  text-align: left;
+}
+
+.InputButton-Button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+
+  display: block;
+  width: 90px;
+
+  background: $color-tango;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+
+  color: $color-white;
+  font-size: $fs-normal;
+  font-weight: $fw-regular;
+  line-height: $fs-normal;
+
+  cursor: pointer;
+
+  transition: ease-out 350ms background;
+
+  &:hover {
+    background: lighten($color-tango, 15);
+  }
+}

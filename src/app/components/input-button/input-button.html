@@ -1,0 +1,9 @@
+<div class="InputButton">
+  <input
+    class="InputButton-Input"
+    type="text"
+    [placeholder]="placeholder"
+    [maxLength]="maxLength"
+    [(ngModel)]="inputValue" />
+  <button class="InputButton-Button" (click)="onButtonPress()">{{button}}</button>
+</div>

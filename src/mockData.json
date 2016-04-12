@@ -30,8 +30,10 @@
     ],
     "price": {
       "value": 4.95,
-      "description": "im Monat<sup>1</sup>"
-    }
+      "description": "im Monat<sup>1</sup>",
+      "type": "one-off"
+    },
+    "stock": 15
   },
 
   {
@@ -65,7 +67,9 @@
     ],
     "price": {
       "value": 99,
-      "description": "einmalig"
-    }
+      "description": "einmalig",
+      "type": "monthly"
+    },
+    "stock": 2
   }
 ]

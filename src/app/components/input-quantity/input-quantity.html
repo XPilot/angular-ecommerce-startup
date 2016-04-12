@@ -1,0 +1,14 @@
+<div class="InputQuantity">
+  <button class="InputQuantity-Button" (click)="substract()">-</button>
+  <div class="InputQuantity-DropDown">
+    <input
+      class="InputQuantity-Input"
+      type="number"
+      disabled="disabled"
+      [min]="min"
+      [max]="max"
+      [value]="quantity"
+    />
+  </div>
+  <button class="InputQuantity-Button" (click)="add()">+</button>
+</div>

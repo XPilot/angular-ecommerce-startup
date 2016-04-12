@@ -1,6 +1,7 @@
 import { Component } from 'angular2/core'
 
 // components
+import CartCalculator from 'app/components/cart-calculator/cart-calculator';
 import CartList from 'app/components/cart-list/cart-list';
 import ProductSelector from 'app/components/product-selector/product-selector';
 import ProductItem from 'app/components/product-item/product-item';
@@ -18,6 +19,7 @@ import './homepage.scss';
 @Component({
   selector: 'homepage',
   directives: [
+    CartCalculator,
     CartList,
     ProductItem,
     ProductSelector,
@@ -45,8 +47,16 @@ export class Homepage {
   }
 
   addProduct(id) {
-    this.cartService.addProduct(
+    this.cartProducts = this.cartService.addProduct(
       this.productService.getProductById(id)
     );
+  }
+
+  updateProductQuantity(product) {
+    this.cartService.updateProduct(product.id, product.quantity);
+  }
+
+  deleteProduct(product) {
+    this.cartProducts = this.cartService.deleteProduct(product.id);
   }
 }

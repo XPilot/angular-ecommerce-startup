@@ -1,0 +1,33 @@
+<div class="CartCalculator">
+  <ul class="CartCalculator-List">
+    <li class="CartCalculator-Item">
+      <p class="CartCalculatorItem-OneOff">Einmalige Kosten</p>
+      <p class="CartCalculatorItem-OneOffValue">{{oneOffTotal}} &euro;</p>
+    </li>
+
+    <li class="CartCalculator-Item CartCalculator-Item--borderThin">
+      <p class="CartCalculatorItem-Monthly">Monatliche Kosten</p>
+      <p class="CartCalculatorItem-MonthlyValue">{{monthlyTotal}} &euro;</p>
+    </li>
+
+    <li class="CartCalculator-Item">
+      <p class="CartCalculatorItem-Subtotal"><strong>Zwischesumme</strong></p>
+      <p class="CartCalculatorItem-SubtotalValue"><strong>{{subtotal}} &euro;</strong></p>
+    </li>
+
+    <li class="CartCalculator-Item CartCalculator-Item--borderBold">
+      <p class="CartCalculatorItem-Shipping">Versandkosten</p>
+      <p class="CartCalculatorItem-ShippingValue">{{shipping}} &euro;</p>
+    </li>
+
+    <li class="CartCalculator-Item">
+      <p class="CartCalculatorItem-Total">Gesamtsumme</p>
+      <p class="CartCalculatorItem-TotalValue">{{total}} &euro;</p>
+      <sub class="CartCalculatorItem-TotalValueVAT">inkl. MwSt (19%)</sub>
+    </li>
+  </ul>
+
+  <button class="CartCalculator-CheckoutButton">
+    Zur Kasse gehen <i class="fa fa-chevron-right" aria-hidden="true"></i>
+  </button>
+</div>

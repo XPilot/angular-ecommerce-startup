@@ -1,0 +1,121 @@
+@import '~assets/scss/settings/colors.scss';
+@import '~assets/scss/settings/variables.scss';
+@import '~assets/scss/settings/responsive.scss';
+
+.CartCalculator {
+  position: relative;
+
+  width: 100%;
+
+  @include desktop {
+    max-width: 370px;
+  }
+}
+
+.CartCalculator-List {
+  list-style: none;
+  list-style-image: none;
+  list-style-type: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+.CartCalculator-Item {
+  position: relative;
+
+  display: block;
+
+  padding-bottom: 15px;
+
+  color: $color-silver-chalice;
+  font-size: $fs-normal;
+  font-weight: $fw-regular;
+  line-height: $fs-normal;
+  text-align: left;
+
+  &--borderThin {
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid $color-mercury;
+  }
+
+  &--borderBold {
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+
+    border-bottom: 2px solid $color-silver-chalice;
+  }
+
+  &:last-child {
+    padding-bottom: 30px;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+
+    strong {
+      color: $color-tundora;
+      font-weight: $fw-bold;
+    }
+
+    &:last-of-type {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
+.CartCalculatorItem-Total,
+.CartCalculatorItem-TotalValue {
+  color: $color-tundora;
+
+  font-size: $fs-large;
+  font-weight: $fw-bold;
+  line-height: $fs-large;
+}
+
+.CartCalculatorItem-TotalValueVAT {
+  position: absolute;
+  top: inherit;
+  bottom: 0;
+  right: 0;
+
+  display: block;
+
+  color: $color-silver-chalice;
+  font-size: $fs-xsmall;
+  font-weight: $fw-regular;
+  line-height: $fs-xsmall;
+}
+
+.CartCalculator-CheckoutButton {
+  width: 100%;
+
+  margin-top: 50px;
+  padding: 18px 0;
+
+  border: none;
+  border-radius: 5px;
+  background: $color-mariner;
+
+  color: $color-white;
+  font-size: $fs-normal + 4px;
+  font-weight: $fw-regular;
+  line-height: $fs-normal + 4px;
+
+  cursor: pointer;
+  outline: none;
+  transition: ease-out 350ms background;
+
+  &:hover {
+    background: lighten($color-mariner, 15);
+  }
+
+  > i {
+    font-size: 16px;
+  }
+}

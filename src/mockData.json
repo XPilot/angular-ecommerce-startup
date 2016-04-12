@@ -3,6 +3,8 @@
     "id": 1,
     "productIsTopSeller": true,
     "productHeading": "Komplettlösung",
+    "productImage": "assets/images/icon_camera.png",
+    "productDetails": "inkl. 24 Std. Video-Speicher (gratis) <p>\u000310% Rabatt f\u00FCr jede weitere Kamra**<\/p>",
     "productList": [
       {
         "image": "assets/images/icon_app.png",
@@ -36,6 +38,8 @@
     "id": 2,
     "productIsTopSeller": false,
     "productHeading": "Kamera-Paket",
+    "productImage": "assets/images/icon_camera.png",
+    "productDetails": "inkl. 24 Std. Video-Speicher (gratis) <p>\u000310% Rabatt f\u00FCr jede weitere Kamra**<\/p>",
     "productList": [
       {
         "image": "assets/images/icon_app.png",
